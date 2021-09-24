@@ -404,6 +404,8 @@ def configure_cron():
         'rm -f /etc/at.deny',
         'touch /etc/cron.allow',
         'touch /etc/at.allow',
+        'echo "root" > /etc/cron.allow'
+        'echo "deployuser" > /etc/cron.allow'
         'chmod og-rwx /etc/cron.allow',
         'chmod og-rwx /etc/at.allow',
         'chown root:root /etc/cron.allow',
@@ -436,7 +438,7 @@ def configure_sshd():
         'ClientAliveInterval': '300',
         'ClientAliveCountMax': '0',
         'LoginGraceTime': '120'
-   #     'AllowUsers': 'ec2-user',
+        'AllowUsers': 'ec2-user',
    #     'Banner': '/etc/ssh/banner'
     }).write()
 
